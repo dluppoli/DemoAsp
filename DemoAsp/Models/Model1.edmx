@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OlympicsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Olympics.dbo.AthletesFull' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AthletesFull">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAthlete" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="NOC" Type="char" MaxLength="3" />
+          <Property Name="Games" Type="varchar" MaxLength="200" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Season" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="200" />
+          <Property Name="Sport" Type="varchar" MaxLength="1000" />
+          <Property Name="Event" Type="varchar" MaxLength="8000" />
+          <Property Name="Medal" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="OlympicsModelStoreContainer">
+          <EntitySet Name="AthletesFull" EntityType="Self.AthletesFull" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AthletesFull].[Id] AS [Id], 
+    [AthletesFull].[IdAthlete] AS [IdAthlete], 
+    [AthletesFull].[Name] AS [Name], 
+    [AthletesFull].[Sex] AS [Sex], 
+    [AthletesFull].[Age] AS [Age], 
+    [AthletesFull].[Height] AS [Height], 
+    [AthletesFull].[Weight] AS [Weight], 
+    [AthletesFull].[NOC] AS [NOC], 
+    [AthletesFull].[Games] AS [Games], 
+    [AthletesFull].[Year] AS [Year], 
+    [AthletesFull].[Season] AS [Season], 
+    [AthletesFull].[City] AS [City], 
+    [AthletesFull].[Sport] AS [Sport], 
+    [AthletesFull].[Event] AS [Event], 
+    [AthletesFull].[Medal] AS [Medal]
+    FROM [dbo].[AthletesFull] AS [AthletesFull]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OlympicsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AthletesFull">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAthlete" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="NOC" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Games" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Season" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Sport" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Event" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Medal" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OlympicsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AthletesFull" EntityType="Self.AthletesFull" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OlympicsModelStoreContainer" CdmEntityContainer="OlympicsEntities">
+          <EntitySetMapping Name="AthletesFull">
+            <EntityTypeMapping TypeName="OlympicsModel.AthletesFull">
+              <MappingFragment StoreEntitySet="AthletesFull">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAthlete" ColumnName="IdAthlete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="NOC" ColumnName="NOC" />
+                <ScalarProperty Name="Games" ColumnName="Games" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Medal" ColumnName="Medal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

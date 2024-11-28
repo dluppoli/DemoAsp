@@ -1,0 +1,120 @@
+﻿@model DemoAsp.ViewModels.PaginatedResultViewModel<DemoAsp.Models.AthletesFull>
+
+@{
+    ViewBag.Title = "GetPartecipations";
+}
+
+<h2>GetPartecipations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].IdAthlete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].NOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Games)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Season)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Sport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Event)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.results[0].Medal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.results)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAthlete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Games)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medal)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "GetOne", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+    <span>@Model.pages</span>
+    <span>@Model.page</span>
+
+    if (Model.page==1)
+    {
+        <p> Prima pagina </p>
+    }
+    if (Model.page == Model.pages)
+    {
+        <p> Ultima pagina </p>
+    }
+}
