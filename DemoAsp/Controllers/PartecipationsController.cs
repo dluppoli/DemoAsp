@@ -79,5 +79,31 @@ namespace DemoAsp.Controllers
             return Content("to be defined");
         }
 
+        [Route("Edit/{id}")]
+        public ActionResult Edit(int id)
+        {
+            using (var context = new OlympicsEntities())
+            {
+                AthletesFull p = context.AthletesFull.FirstOrDefault(q => q.Id == id);
+                return View(p);
+            }
+        }
+
+        [Route("Edit/{id}")]
+        [HttpPost]
+        public ActionResult Edit(int id, AthletesFull newPartecipation)
+        {
+            using (var context = new OlympicsEntities())
+            {
+                AthletesFull oldPartecipation = context.AthletesFull.FirstOrDefault(q => q.Id == id);
+
+                oldPartecipation.Name = newPartecipation.Name;
+                oldPartecipation.NOC = newPartecipation.NOC;
+
+                context.SaveChanges();
+
+                return RedirectToAction("all", new { idAthlete = newPartecipation.IdAthlete});
+            }
+        }
     }
 }

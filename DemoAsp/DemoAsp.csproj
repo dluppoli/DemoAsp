@@ -225,6 +225,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Partecipations\Random.cshtml" />
     <Content Include="Views\Partecipations\GetPartecipations.cshtml" />
+    <Content Include="Views\Partecipations\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
